@@ -24,11 +24,11 @@ $userEmail = $_SESSION['email'];
 <body>
 
     <div class="container mt-5">
-        <div>
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h1>Welcome to the System, <?php echo $userEmail; ?>!</h1>
-                <a href="root/logout.php" class="btn btn-danger">Logout</a>
-            </div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Welcome to the System, <?php echo htmlspecialchars($userEmail); ?>!</h1>
+            <form action="root/logout.php" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
         </div>
 
         <div class="row mt-4">
