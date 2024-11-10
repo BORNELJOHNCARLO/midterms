@@ -27,7 +27,7 @@ $userEmail = $_SESSION['email'];
         <div>
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1>Welcome to the System, <?php echo $userEmail; ?>!</h1>
-                <a href="root/logout.php" class="btn btn-danger">Logout</a>
+                <a href="logout.php" class="btn btn-danger">Logout</a>
             </div>
         </div>
 
