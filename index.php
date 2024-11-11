@@ -4,8 +4,11 @@ session_start();
 
 // Predefined users (email => password)
 $users = [
-    'johncarlo@email.com' => 'vanet'
-  
+    'user1@email.com' => 'user1234', 
+    'user2@email.com' => 'user1234',
+    'user3@email.com' => 'user1234',
+    'user4@email.com' => 'user1234',
+    'user5@email.com' => 'user1234'
 ];
 
 // Initialize variables
