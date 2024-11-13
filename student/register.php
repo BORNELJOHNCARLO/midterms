@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     <div class="container mt-5">
         <h3 class="card-title">Register a New Student</h3><br>
         
@@ -97,39 +99,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </form>
             </div>
         </div>
-        <!-- Student List Card -->
-        <div class="card shadow-sm border-0">
-            <div class="card-body">
-                <h3 class="card-title">Student List</h3>
-                <table class="table table-striped" id="studentListTable">
-                    <thead>
-                        <tr>
-                            <th>Student ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Option</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($_SESSION['students'] as $student): ?>
-                            <tr>
-                                <td <?php echo htmlspecialchars($student['studentId']); ?></td>
-                                <td><?php echo htmlspecialchars($student['firstName']); ?></td>
-                                <td><?php echo htmlspecialchars($student['lastName']); ?></td>
-                                <td>
-                                    <form method="POST" action="edit.php" style="display:inline;">
-                                        <input type="hidden" name="studentId" value="<?php echo htmlspecialchars($student['studentId']); ?>">
-                                        <button type="submit" class="btn btn-primary btn-sm">Edit</button>
-                                    </form>
-                                    <form method="POST" action="delete.php" style="display:inline;">
-                                        <input type="hidden" name="studentId" value="<?php echo htmlspecialchars($student['studentId']); ?>">
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+       <!-- Student List Card -->
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <h3 class="card-title">Student List</h3>
+        <table class="table table-striped" id="studentListTable">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($_SESSION['students'] as $student): ?>
+                    <tr>
+                        <!-- Corrected the display of Student ID -->
+                        <td><?php echo htmlspecialchars($student['studentId']); ?></td>
+                        <td><?php echo htmlspecialchars($student['firstName']); ?></td>
+                        <td><?php echo htmlspecialchars($student['lastName']); ?></td>
+                        <td>
+                            <form method="POST" action="edit.php" style="display:inline;">
+                                <input type="hidden" name="studentId" value="<?php echo htmlspecialchars($student['studentId']); ?>">
+                                <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                            </form>
+                            <form method="POST" action="delete.php" style="display:inline;">
+                                <input type="hidden" name="studentId" value="<?php echo htmlspecialchars($student['studentId']); ?>">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+</div>

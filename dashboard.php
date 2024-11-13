@@ -1,7 +1,7 @@
 <?php
 // Start the session
 session_start();
-
+include('header.php');
 // Check if the user is logged in by checking the session variable
 if (!isset($_SESSION['email'])) {
     // Redirect to login page if user is not logged in
@@ -44,4 +44,3 @@ $userEmail = $_SESSION['email'];
             </div>
         </div>
     </div>
-
