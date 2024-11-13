@@ -1,7 +1,7 @@
 <?php
 // Start the session to store user data
 session_start();
-
+include('header.php');
 // Predefined users (email => password)
 $users = [
     'user1@email.com' => 'user1234', 
