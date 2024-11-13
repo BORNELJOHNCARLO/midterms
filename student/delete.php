@@ -35,15 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirmDelete'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Deletion</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+
     <div class="container mt-5">
         <h3 class="card-title">Delete a Student</h3><br>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -71,5 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirmDelete'])) {
             <button type="submit" name="confirmDelete" class="btn btn-danger">Delete student record</button>
         </form>
     </div>
-</body>
-</html>
