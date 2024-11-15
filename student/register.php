@@ -18,13 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate inputs
     if (empty($studentId)) {
-        $errors[] = "Student ID is required.";
+        $errors[] = "Student ID is required."; // Error for empty Student ID
     }
     if (empty($firstName)) {
-        $errors[] = "First Name is required.";
+        $errors[] = "First Name is required."; // Error for empty First Name
     }
     if (empty($lastName)) {
-        $errors[] = "Last Name is required.";
+        $errors[] = "Last Name is required."; // Error for empty Last Name
+    }
+
+    // Check for duplicate Student ID
+    if (array_search($studentId, array_column($_SESSION['students'], 'studentId')) !== false) {
+        $errors[] = "Student ID already exists. Please use a different ID."; // Error for duplicate Student ID
     }
 
     // If there are no errors, process the registration
@@ -48,21 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $studentId = $firstName = $lastName = '';
     }
 }
+
 ?>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <div class="container mt-5">
         <h3 class="card-title">Register a New Student</h3><br>
-        
-        <!-- Display error messages -->
-        <?php if (!empty($errors)): ?>
-            <div class="alert alert-danger">
-                <?php foreach ($errors as $error): ?>
-                    <p><?php echo htmlspecialchars($error); ?></p>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
@@ -74,6 +72,14 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
                     </nav>
                 </div>
             </nav>
+            <!-- Display error messages -->
+                <?php if (!empty($errors)): ?>
+                    <div class="alert alert-danger">
+                        <?php foreach ($errors as $error): ?>
+                            <p><?php echo htmlspecialchars($error); ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
         </div><br>
         <!-- Registration Form Card -->
         <div class="card shadow-sm border-0 mb-4">
